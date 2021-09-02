@@ -5,9 +5,11 @@ searchBook = () => {
     const searchText = searchField.value;
     searchField.value = '';
     document.getElementById('error-message').style.display = 'none';
-    document.getElementById('loading-spinner').style.display='block';   
+    document.getElementById('loading-spinner').style.display='block';  
+    document.getElementById('no-result').style.display = 'none';
     document.getElementById('search-result').textContent = '';
     document.getElementById('total-result').textContent = '';
+    
 
      
     // searchField empty error 
@@ -36,13 +38,16 @@ const displaySearchResult = (docs, numFound) => {
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
     if(docs.length === 0){
-        document.getElementById('no-result').style.display = 'block';
         
+        document.getElementById('no-result').style.display = 'block';
+        document.getElementById('total-result').style.display = 'none'; 
     }
 
     
+    else{
 
-    // total result found 
+         // total result found 
+
     const div  = document.getElementById('total-result');
     div.innerHTML = `
         <div class="text-danger">
@@ -50,13 +55,13 @@ const displaySearchResult = (docs, numFound) => {
         </div>`;
     
 
-
+    
     docs.forEach(doc => {
         const div  = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
             <div class="card h-100 shadow">
-                <img height="500px" src="https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg" class="card-img-top" alt="...">
+                <img height="400px" src="https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Book Name: ${doc.title}.</h5>
                   <p class="card-text"><b>Author:</b> ${doc.author_name}.</p>
@@ -67,5 +72,10 @@ const displaySearchResult = (docs, numFound) => {
         
     })
 
-    document.getElementById('loading-spinner').style.display='none';
+    
+
+    }
+   document.getElementById('loading-spinner').style.display='none';
+  
+   
 }
