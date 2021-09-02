@@ -40,7 +40,7 @@ const displaySearchResult = (docs, numFound) => {
     if(docs.length === 0){
         
         document.getElementById('no-result').style.display = 'block';
-        document.getElementById('total-result').style.display = 'none'; 
+        
     }
 
     
