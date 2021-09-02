@@ -9,38 +9,65 @@
 </head>
 <body>
 
-            <!-- Heading and searchbox -->
+  <header>
+          <!-- Heading and searchbox -->
     
-     <h1 class="text-center">Welcome to <span class="text-danger" >Book Archive!</span></h1>
+        <h1 class="text-center pt-5">Welcome to <span class="text-danger" >Book Archive!</span></h1>
     
         <div class="input-group mb-3 w-50 mx-auto">
              <input id="search-field" type="text" class="form-control" placeholder="Search the Book" aria-label="Search" aria-describedby="button-addon2">
              <button onclick="searchBook()" class="btn btn-danger text-white btn-outline-secondary" type="button" id="button-search">Search</button>
         </div>
+  </header>
+
+   <main>
 
 
-
-      <!-- Search result  -->
-
-      <!-- error message -->
-        <div>
-        <p id="error-message" style="display: none;" class = "text-center fw-bold text-warning">Invalid Search!!!</p>
+      <section>
+      <!-- Spinner  -->
+      <div id="loading-spinner" class="text-center" style="display: none;">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
+      </div>
 
 
-        <div>
-                    <!-- Total result found -->
-                   <div id="total-result" class="text-center">
-                   </div>
+             <!-- Search result  -->
 
-                   <!-- showing books -->
-                  <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
-       
-                  </div>
+             <!-- error message -->
 
+             <div>
+              <p id="no-result" style="display: none;" class = "text-center fw-bold text-secondary">No Result Found!!!</p>
+         </div>
+
+          <div>
+               <p id="error-message" style="display: none;" class = "text-center fw-bold text-secondary">Invalid Search!!!</p>
           </div>
+
+
+          <div>
+                    <!-- Total result found -->
+                     <div id="total-result" class="text-center">
+
+                     </div>
+
+                     <!-- showing books -->
+                     <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 mx-auto">
+       
+                     </div>
+
+           </div>
+        </section>
       
 
+   </main>
+
+       <footer>
+
+       </footer>
+
+      
+<!-- JavaScrip link  -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 </body>
